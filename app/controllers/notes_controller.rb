@@ -2,30 +2,26 @@ class NotesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_note, only: [:show, :edit, :update, :destroy]
 
-  # GET /notes
-  # GET /notes.json
   def index
-    @notes = Note.all
+    notes_scope = Note.all
+    @notes_scope_meta = notes_scope.ransack(params[:q])
+    @notes = @notes_scope_meta.result
   end
 
-  # GET /notes/1
-  # GET /notes/1.json
   def show
   end
 
-  # GET /notes/new
   def new
     @note = Note.new
   end
 
-  # GET /notes/1/edit
   def edit
   end
 
-  # POST /notes
-  # POST /notes.json
   def create
+    # binding.pry
     @note = Note.new(note_params)
+    # binding.pry
 
     respond_to do |format|
       if @note.save
@@ -63,13 +59,14 @@ class NotesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_note
-      @note = Note.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def note_params
-      params.fetch(:note, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_note
+    @note = Note.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def note_params
+    params.fetch(:note, {}).permit(:title, :body)
+  end
 end

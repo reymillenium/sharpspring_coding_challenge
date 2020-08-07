@@ -4,19 +4,38 @@
 
 <table>
   <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th class="nowrap">
+      <%#= sort_link(flags_scope_meta, :name, humanize_attribute(flag_model, :name), {default_order: :asc}) %>
+      <%#= sort_link(@q, :name, humanize_attribute(flag_model, :name), {default_order: :asc}) %>
+      <%= sort_link(@notes_scope_meta, :title, { default_order: :asc }) %>
+    </th>
+    <th class="nowrap">
+      <%= sort_link(@notes_scope_meta, :body, { default_order: :asc }) %>
+    </th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @notes.each do |note| %>
-      <tr>
-        <td><%= link_to 'Show', note %></td>
-        <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <% @notes.each do |note| %>
+    <tr>
+      <td>
+        <div class="nowrap">
+          <%= note.title %>
+        </div>
+      </td>
+      <td>
+        <div class="nowrap">
+          <%= note.body %>
+        </div>
+      </td>
+
+      <td><%= link_to 'Show', note %></td>
+      <td><%= link_to 'Edit', edit_note_path(note) %></td>
+      <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 
