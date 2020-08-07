@@ -62,4 +62,8 @@ Rails.application.configure do
 
   # Devise default url options:
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # Mailcatcher configuration (delivery method, it fakes a smtp sending of an email using another local port):
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 end
