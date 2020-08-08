@@ -1,8 +1,13 @@
 <br>
-<h1 class="mt-4">New Note</h1>
+<h1 class="mt-4"><%= t('notes.new.header') %></h1>
 
-<ol class="breadcrumb mb-4">
-  <li class="breadcrumb-item active">New Note</li>
+<ol class="breadcrumb mb-4 hidden-print">
+  <li>
+    <%= link_to notes_path do %>
+      <%= t('notes.nav') %>
+    <% end %>
+  </li> &nbsp;/&nbsp;
+  <li class="active"> <%= t('notes.creation.header') %></li>
 </ol>
 
 <%= render 'form', note: @note %>

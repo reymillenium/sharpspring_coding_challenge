@@ -1,4 +1,14 @@
-<h1>Editing Note</h1>
+<br>
+<h1 class="mt-4"><%= t('notes.update.header') %></h1>
+
+<ol class="breadcrumb mb-4 hidden-print">
+  <li>
+    <%= link_to notes_path do %>
+      <%= t('notes.nav') %>
+    <% end %>
+  </li> &nbsp;/&nbsp;
+  <li class="active"> <%= t('notes.update.header') %></li>
+</ol>
 
 <%= render 'form', note: @note %>
 
