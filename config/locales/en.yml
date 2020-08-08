@@ -175,3 +175,45 @@ en:
     back_to: 'Back to %{resource}'
     resend: 'Re-Send'
     resend_resource: 'Re-Send %{resource}'
+
+  notes:
+    title: 'Notes'
+    nav: 'Notes'
+    short: 'Notes'
+    validation:
+      invalid: 'invalid'
+    report:
+      tab: 'Notes Report'
+      nav: 'Notes Report'
+      title: 'Notes Report'
+    export:
+      to_csv: 'Export to CSV'
+    responses:
+      clone:
+        success: "The %{resource} has been successfully cloned"
+        error: "The %{resource} can't be cloned}"
+      assignment:
+        success: "The flags have been successfully assigned to the patient %{resource}"
+        error: "The flags can't be assigned to the patient %{resource}}. Reason: %{reason}"
+      exporting_action:
+        success: 'The Report of %{resource} has been successfully exported to the csv file: "%{file_name}"'
+        error: "It was not possible to export to a csv file the Report of %{resource}"
+    nature:
+      manual: "Manual"
+      automatic: "Automatic"
+      all: "All"
+    severity:
+      critical: "Critical"
+      warning: "Warning"
+      informational: "Informational"
+      all: "All"
+    new:
+      header: 'New Note'
+      button_title: 'New'
+    creation:
+      header: 'Create Note'
+    update:
+      header: 'Edit Note'
+    details:
+      header: 'Note Details'
+    form:

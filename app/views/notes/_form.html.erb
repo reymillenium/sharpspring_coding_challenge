@@ -28,7 +28,8 @@
     <div class="col-sm-12">
       <%#= form.label :body, humanize_attribute(flag_model, :body), class: "control-label" %>
       <%= form.label :body %>
-      <%= form.text_area :body, class: "form-control textarea_inline_100 text_autosize", style: 'resize: vertical; height: 240px;', disabled: false %>
+      <%#= form.text_area :body, class: "form-control textarea_inline_100 text_autosize", style: 'resize: vertical; height: 240px;', disabled: false %>
+      <%= form.rich_text_area :body, class: "form-control", disabled: false %>
     </div>
   </div>
 
