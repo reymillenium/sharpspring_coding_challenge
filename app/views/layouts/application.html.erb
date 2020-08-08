@@ -4,26 +4,15 @@
   <title>SharpSpring Coding Challenge</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+  <link rel="shortcut icon" href="<%= asset_path 'old-note-transparent.png' %>"/>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body class="sb-nav-fixed">
-<p class="navbar-text float-right">
-  <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
-    <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
-  <% end %>
-</p>
-
 <!--<p id="notice" class="notice"><%#= notice %></p>-->
 <!--<p id="alert" class="alert"><%#= alert %></p>-->
-
 
 <% if notice %>
   <p id="notice" class="alert alert-success"><%= notice %></p>
@@ -35,7 +24,9 @@
 
 
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-  <a class="navbar-brand" href="index.html">Sharp</a>
+  <img class="ml-4" style="width: 41px; height: 43px;" src=<%= "#{asset_path 'old-note-transparent.png'}" %>>
+  <a class="navbar-brand" href="
+    <% notes_path %>">SharpNotes</a>
   <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i>
   </button>
   <!-- Navbar Search-->
@@ -52,10 +43,18 @@
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-        <a class="dropdown-item" href="#">Settings</a>
-        <a class="dropdown-item" href="#">Activity Log</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="login.html">Logout</a>
+        <% if user_signed_in? %>
+          <%= link_to 'Edit profile', edit_user_registration_path, class: 'dropdown-item' %>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, class: 'dropdown-item' %>
+          <%= link_to "Login", new_user_session_path, class: 'dropdown-item' %>
+        <% end %>
+        <!--<a class="dropdown-item" href="#">Settings</a>-->
+        <!--<a class="dropdown-item" href="#">Activity Log</a>-->
+        <!--<div class="dropdown-divider"></div>-->
+        <!--<a class="dropdown-item" href="login.html">Logout</a>-->
       </div>
     </li>
   </ul>
@@ -247,7 +246,6 @@
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 <script src="app/assets/demo/datatables-demo.js"></script>
-
 
 
 </body>
