@@ -3,98 +3,113 @@
 <h1>Notes</h1>
 
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
+<div class="card mb-4">
+  <div class="card-header">
+    <i class="fas fa-table mr-1"></i>
+    DataTable Example
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+        <tr>
+          <th>
+            <%= sort_link(@notes_scope_meta, :title, { default_order: :asc }) %>
+          </th>
+          <th>
+            <%= sort_link(@notes_scope_meta, :body, { default_order: :asc }) %>
+          </th>
+          <th>
+            <%= sort_link(@notes_scope_meta, :created_at, { default_order: :asc }) %>
+          </th>
+          <th>
+            <%= sort_link(@notes_scope_meta, :updated_at, { default_order: :asc }) %>
+          </th>
+          <th colspan="3"></th>
+        </tr>
+        </thead>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+        <tfoot>
+        <tr>
+          <th>
+            <%= sort_link(@notes_scope_meta, :title, { default_order: :asc }) %>
+          </th>
+          <th>
+            <%= sort_link(@notes_scope_meta, :body, { default_order: :asc }) %>
+          </th>
+          <th>
+            <%= sort_link(@notes_scope_meta, :created_at, { default_order: :asc }) %>
+          </th>
+          <th>
+            <%= sort_link(@notes_scope_meta, :updated_at, { default_order: :asc }) %>
+          </th>
+          <th colspan="4"></th>
+        </tr>
+        </tfoot>
+
+        <tbody>
+        <% @notes.each do |note| %>
+          <tr>
+            <td>
+              <div class="nowrap">
+                <%= link_to note.title, note_path(note)  %>
+              </div>
+            </td>
+            <td>
+              <div class="nowrap">
+                <%= note.body %>
+              </div>
+            </td>
+            <td>
+              <div class="nowrap">
+                <%= note.created_at %>
+              </div>
+            </td>
+            <td>
+              <div class="nowrap">
+                <%= note.updated_at %>
+              </div>
+            </td>
+            <td class="nowrap actions-cell">
+              <%= link_to "#", class: "action-btn export_pkpass", data: {toggle: 'tooltip', placement: 'top'}, title: t('actions.export.default') do %>
+                <i class="fa fa-download fa-fw" aria-hidden="true"></i>
+              <% end %>
+
+              <%= link_to "#", class: "action-btn clone_pkpass_template", data: {toggle: 'tooltip', placement: 'top'}, title: t('actions.clone') do %>
+                <i class="fa fa-clone fa-fw" aria-hidden="true"></i>
+              <% end %>
+
+              <%#= link_to 'Edit', edit_note_path(note) %>
+              <%#= link_to edit_note_path(note), class: "btn btn-xs", data: {toggle: 'tooltip', placement: 'top'}, title: t('actions.edit') do %>
+              <%= link_to edit_note_path(note), class: "action-btn edit", data: {toggle: 'tooltip', placement: 'top'}, title: t('actions.edit') do %>
+<!--                <i class="fa fa-pencil fa-fw"></i>-->
+<!--                <i class="fa fa-edit"></i>-->
+                <i class="fa fa-pencil-alt fa-fw" aria-hidden="true"></i>
+              <% end %>
+
+              <%#= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%#= link_to note_path(note), method: :delete, class: "btn btn-xs", data: {confirm: t("actions.confirm"), toggle: 'tooltip', placement: 'top', disable_with: t('actions.deleting.short')}, title: t('actions.delete') do %>
+              <%= link_to note_path(note), method: :delete, class: "action-btn delete", data: {confirm: t("actions.confirm"), toggle: 'tooltip', placement: 'top', disable_with: t('actions.deleting.short')}, title: t('actions.delete') do %>
+                <i class="fa fa-times fa-lg fa-fw" aria-hidden="true"></i>
+              <% end %>
+
+              <%#= link_to flags_flag_path(flag), method: :delete, class: "btn btn-xs", data: {confirm: t("actions.confirm"), toggle: 'tooltip', placement: 'top', disable_with: t('actions.deleting.short')}, title: t('actions.delete') do %>
+<!--                <i class="fa fa-times fa-lg"></i>-->
+              <%# end %>
+
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+
+      </table>
     </div>
   </div>
 </div>
 
 
-<table>
-  <thead>
-  <tr>
-    <th class="nowrap">
-      <%#= sort_link(flags_scope_meta, :name, humanize_attribute(flag_model, :name), {default_order: :asc}) %>
-      <%#= sort_link(@q, :name, humanize_attribute(flag_model, :name), {default_order: :asc}) %>
-      <%= sort_link(@notes_scope_meta, :title, { default_order: :asc }) %>
-    </th>
-    <th class="nowrap">
-      <%= sort_link(@notes_scope_meta, :body, { default_order: :asc }) %>
-    </th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
 
-  <tbody>
-  <% @notes.each do |note| %>
-    <tr>
-      <td>
-        <div class="nowrap">
-          <%= note.title %>
-        </div>
-      </td>
-      <td>
-        <div class="nowrap">
-          <%= note.body %>
-        </div>
-      </td>
-      <i class="fab fa-twitter fa-1x"></i>
-      <td><%= link_to 'Show', note %></td>
-      <td><%= link_to 'Edit', edit_note_path(note) %></td>
-      <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
 
-<% content_for :javascript do %>
-  <script type='text/javascript'>
-      // $("#btn").live("click", function () {
-      //     alertify.confirm("Are you sure you want to delete?", function (asc) {
-      //         if (asc) {
-      //             //ajax call for delete
-      //             alertify.success("Record is deleted.");
-      //
-      //         } else {
-      //             alertify.error("You've clicked cancel");
-      //         }
-      //     }, "Default Value");
-      // });
-
-      $(document).ready(function() {
-
-          // $('#btn').click(function (event) {
-          //     alertify.alert('Hooray!');
-          //     event.preventDefault(); // Prevent link from following its href
-          // });
-      })
-
-      // $('#btn').click(function (event) {
-      //     myalertify.alert('Hooray!');
-      //     // event.preventDefault(); // Prevent link from following its href
-      // });
-  </script>
-<% end %>
 
 <br>
 
