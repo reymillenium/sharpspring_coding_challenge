@@ -58,7 +58,7 @@
           <%= note.body %>
         </div>
       </td>
-
+      <i class="fab fa-twitter fa-1x"></i>
       <td><%= link_to 'Show', note %></td>
       <td><%= link_to 'Edit', edit_note_path(note) %></td>
       <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -66,6 +66,35 @@
   <% end %>
   </tbody>
 </table>
+
+<% content_for :javascript do %>
+  <script type='text/javascript'>
+      // $("#btn").live("click", function () {
+      //     alertify.confirm("Are you sure you want to delete?", function (asc) {
+      //         if (asc) {
+      //             //ajax call for delete
+      //             alertify.success("Record is deleted.");
+      //
+      //         } else {
+      //             alertify.error("You've clicked cancel");
+      //         }
+      //     }, "Default Value");
+      // });
+
+      $(document).ready(function() {
+
+          // $('#btn').click(function (event) {
+          //     alertify.alert('Hooray!');
+          //     event.preventDefault(); // Prevent link from following its href
+          // });
+      })
+
+      // $('#btn').click(function (event) {
+      //     myalertify.alert('Hooray!');
+      //     // event.preventDefault(); // Prevent link from following its href
+      // });
+  </script>
+<% end %>
 
 <br>
 
