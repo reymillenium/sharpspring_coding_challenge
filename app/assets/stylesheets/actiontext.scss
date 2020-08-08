@@ -34,3 +34,30 @@
     }
   }
 }
+
+// Adjusts automatically the height of the Trix RichText Editor on the form:
+trix-editor {
+  &.form-control {
+    height: auto;
+  }
+}
+
+// Adjusts the position of the attached files of the Trix RichText Editor on the form
+.form-control {
+  .attachment--preview {
+    margin: 0.6em;
+  }
+
+  .attachment--preview {
+    width: 100%;
+    text-align: center;
+  }
+
+  .attachment {
+    display: inline-block;
+    position: relative;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
