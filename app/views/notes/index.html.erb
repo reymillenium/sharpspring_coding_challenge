@@ -1,12 +1,18 @@
 <!--<p id="notice"><%#= notice %></p>-->
 
-<h1>Notes</h1>
+<!--<h1>Notes</h1>-->
 
+<h1 class="mt-4">Notes</h1>
+
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Dashboard</li>
+</ol>
 
 <div class="card mb-4">
   <div class="card-header">
     <i class="fas fa-table mr-1"></i>
-    DataTable Example
+    <!--    DataTable Example-->
+    <%= link_to 'New Note', new_note_path %>
   </div>
   <div class="card-body">
     <div class="table-responsive">
@@ -52,7 +58,7 @@
           <tr>
             <td>
               <div class="nowrap">
-                <%= link_to note.title, note_path(note)  %>
+                <%= link_to note.title, note_path(note) %>
               </div>
             </td>
             <td>
@@ -71,32 +77,27 @@
               </div>
             </td>
             <td class="nowrap actions-cell">
-              <%= link_to "#", class: "action-btn export_pkpass", data: {toggle: 'tooltip', placement: 'top'}, title: t('actions.export.default') do %>
+              <%= link_to "#", class: "action-btn export_pkpass", data: { toggle: 'tooltip', placement: 'top' }, title: t('actions.export.default') do %>
                 <i class="fa fa-download fa-fw" aria-hidden="true"></i>
               <% end %>
 
-              <%= link_to "#", class: "action-btn clone_pkpass_template", data: {toggle: 'tooltip', placement: 'top'}, title: t('actions.clone') do %>
+              <%= link_to "#", class: "action-btn clone_pkpass_template", data: { toggle: 'tooltip', placement: 'top' }, title: t('actions.clone') do %>
                 <i class="fa fa-clone fa-fw" aria-hidden="true"></i>
               <% end %>
 
               <%#= link_to 'Edit', edit_note_path(note) %>
               <%#= link_to edit_note_path(note), class: "btn btn-xs", data: {toggle: 'tooltip', placement: 'top'}, title: t('actions.edit') do %>
-              <%= link_to edit_note_path(note), class: "action-btn edit", data: {toggle: 'tooltip', placement: 'top'}, title: t('actions.edit') do %>
-<!--                <i class="fa fa-pencil fa-fw"></i>-->
-<!--                <i class="fa fa-edit"></i>-->
+              <%= link_to edit_note_path(note), class: "action-btn edit", data: { toggle: 'tooltip', placement: 'top' }, title: t('actions.edit') do %>
+                <!--<i class="fa fa-pencil fa-fw"></i>-->
+                <!--<i class="fa fa-edit"></i>-->
                 <i class="fa fa-pencil-alt fa-fw" aria-hidden="true"></i>
               <% end %>
 
               <%#= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
               <%#= link_to note_path(note), method: :delete, class: "btn btn-xs", data: {confirm: t("actions.confirm"), toggle: 'tooltip', placement: 'top', disable_with: t('actions.deleting.short')}, title: t('actions.delete') do %>
-              <%= link_to note_path(note), method: :delete, class: "action-btn delete", data: {confirm: t("actions.confirm"), toggle: 'tooltip', placement: 'top', disable_with: t('actions.deleting.short')}, title: t('actions.delete') do %>
+              <%= link_to note_path(note), method: :delete, class: "action-btn delete", data: { confirm: t("actions.confirm"), toggle: 'tooltip', placement: 'top', disable_with: t('actions.deleting.short') }, title: t('actions.delete') do %>
                 <i class="fa fa-times fa-lg fa-fw" aria-hidden="true"></i>
               <% end %>
-
-              <%#= link_to flags_flag_path(flag), method: :delete, class: "btn btn-xs", data: {confirm: t("actions.confirm"), toggle: 'tooltip', placement: 'top', disable_with: t('actions.deleting.short')}, title: t('actions.delete') do %>
-<!--                <i class="fa fa-times fa-lg"></i>-->
-              <%# end %>
-
             </td>
           </tr>
         <% end %>
@@ -108,9 +109,4 @@
 </div>
 
 
-
-
-
 <br>
-
-<%= link_to 'New Note', new_note_path %>
