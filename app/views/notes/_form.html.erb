@@ -13,7 +13,7 @@
 
   <!-- Form Row # 1:  -->
   <div class="form-group">
-    <div class="col-sm-6 name-group">
+    <div class="col-sm-12 name-group">
       <%#= form.label :title, humanize_attribute(flag_model, :name), class: "control-label icon-required" %>
       <%= form.label :title %>
       <%= form.text_field :title, class: 'form-control', required: true %>
@@ -28,7 +28,7 @@
     <div class="col-sm-12">
       <%#= form.label :body, humanize_attribute(flag_model, :body), class: "control-label" %>
       <%= form.label :body %>
-      <%= form.text_area :body, class: "form-control textarea_inline_100 text_autosize", style: 'resize: vertical; height: 36px;', disabled: false %>
+      <%= form.text_area :body, class: "form-control textarea_inline_100 text_autosize", style: 'resize: vertical; height: 240px;', disabled: false %>
     </div>
   </div>
 
