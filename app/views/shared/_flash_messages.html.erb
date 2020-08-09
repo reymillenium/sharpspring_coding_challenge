@@ -7,13 +7,13 @@
 </span>
 
 <span class="error_msgs float-right mt-1"> <% if alert %>
-        <p class="alert alert-success">
+        <p class="alert alert-danger">
             <%= alert %>
         </p>
   <% end %>
 </span>
 
 <script type="text/javascript" charset="utf-8">
-    setTimeout("$('.error_msgs').fadeOut('slow')", 6000);
+    setTimeout("$('.error_msgs').fadeOut('slow')", 3000);
     setTimeout("$('.success_msgs').fadeOut('slow')", 3000);
 </script>

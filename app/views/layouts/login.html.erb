@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SharpSpring Coding Challenge</title>
+  <title>SharpNotes 2020</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <link rel="shortcut icon" href="<%= asset_path 'old-note-transparent.png' %>"/>
@@ -10,74 +10,6 @@
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<!--<body class="sb-nav-fixed">-->
-
-<!--<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">-->
-<!--  <img class="ml-4" style="width: 41px; height: 43px;" src=<%#= "#{asset_path 'old-note-transparent.png'}" %>>-->
-  <%#= link_to notes_path, class: 'navbar-brand' do %>
-    <%#= t('app.name') %>
-  <%# end %>
-<!--  <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i>-->
-<!--  </button>-->
-<!--   Navbar Search-->
-<!--  <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">-->
-<!--    <div class="input-group">-->
-<!--      <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2"/>-->
-<!--      <div class="input-group-append">-->
-<!--        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </form>-->
-<!--   Navbar-->
-<!--  <ul class="navbar-nav ml-auto ml-md-0">-->
-<!--    <li class="nav-item dropdown">-->
-<!--      <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>-->
-<!--      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">-->
-        <%# if user_signed_in? %>
-          <%#= link_to 'Edit profile', edit_user_registration_path, class: 'dropdown-item' %>
-<!--          <div class="dropdown-divider"></div>-->
-          <%#= link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-        <%# else %>
-          <%#= link_to "Sign up", new_user_registration_path, class: 'dropdown-item' %>
-          <%#= link_to "Login", new_user_session_path, class: 'dropdown-item' %>
-        <%# end %>
-<!--      </div>-->
-<!--    </li>-->
-<!--  </ul>-->
-<!--</nav>-->
-
-<!--<div id="layoutSidenav">-->
-<!--  <div id="layoutSidenav_content">-->
-<!--    <main>-->
-<!--      <div class="container-fluid">-->
-        <%#= render("shared/flash_messages") %>
-        <%#= yield %>
-<!--      </div>-->
-<!--    </main>-->
-
-<!--      <div class="clearfix"></div>-->
-
-<!--    <footer class="py-4 bg-light mt-auto">-->
-<!--      <div class="container-fluid">-->
-<!--        <div class="d-flex align-items-center justify-content-between small">-->
-<!--          <div class="text-muted">Copyright &copy; SharpSpring Coding Challenge 2020</div>-->
-<!--          <div>-->
-<!--            <a href="#">Privacy Policy</a>-->
-<!--            &middot;-->
-<!--            <a href="#">Terms &amp; Conditions</a>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </footer>-->
-<!--  </div>-->
-<!--</div>-->
-<!--<script src="app/javascript/packs/scripts.js"></script>-->
-<!--<script src="app/assets/demo/chart-area-demo.js"></script>-->
-<!--<script src="app/assets/demo/chart-bar-demo.js"></script>-->
-<!--<script src="app/assets/demo/datatables-demo.js"></script>-->
-<!--</body>-->
-
-
 <body class="bg-primary">
 <div id="layoutAuthentication">
   <div id="layoutAuthentication_content">
@@ -85,41 +17,6 @@
       <div class="container">
         <%= render("shared/flash_messages") %>
         <%= yield %>
-
-<!--        <div class="row justify-content-center">-->
-<!--          <div class="col-lg-5">-->
-<!--            <div class="card shadow-lg border-0 rounded-lg mt-5">-->
-<!--              <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>-->
-<!--              <div class="card-body">-->
-<!--                <form>-->
-<!--                  <div class="form-group">-->
-<!--                    <label class="small mb-1" for="inputEmailAddress">Email</label>-->
-<!--                    <input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address"/>-->
-<!--                  </div>-->
-<!--                  <div class="form-group">-->
-<!--                    <label class="small mb-1" for="inputPassword">Password</label>-->
-<!--                    <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password"/>-->
-<!--                  </div>-->
-<!--                  <div class="form-group">-->
-<!--                    <div class="custom-control custom-checkbox">-->
-<!--                      <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox"/>-->
-<!--                      <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">-->
-<!--                    <a class="small" href="password.html">Forgot Password?</a>-->
-<!--                    <a class="btn btn-primary" href="index.html">Login</a>-->
-<!--                  </div>-->
-<!--                </form>-->
-<!--              </div>-->
-<!--              <div class="card-footer text-center">-->
-<!--                <div class="small"><a href="register.html">Need an account? Sign up!</a></div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-
-
       </div>
     </main>
   </div>
@@ -127,7 +24,7 @@
     <footer class="py-4 bg-light mt-auto">
       <div class="container-fluid">
         <div class="d-flex align-items-center justify-content-between small">
-          <div class="text-muted">Copyright &copy; Your Website 2020</div>
+          <div class="text-muted">Copyright &copy; SharpNotes 2020</div>
           <div>
             <a href="#">Privacy Policy</a>
             &middot;
@@ -138,8 +35,6 @@
     </footer>
   </div>
 </div>
-<!--<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>-->
-<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>-->
 <%= javascript_pack_tag 'scripts' %>
 </body>
 </html>
