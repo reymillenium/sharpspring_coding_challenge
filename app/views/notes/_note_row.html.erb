@@ -1,0 +1,57 @@
+<%
+  return_to = local_assigns.fetch(:return_to, request.fullpath)
+  note = local_assigns.fetch(:note)
+  # navigation_descriptor ||= {}
+  # show_path = flags_flag_path(flag, index_scope: navigation_descriptor.to_h, return_to: return_to)
+
+  # flag_is_valid = flag.valid?
+  # can_edit_flag = (can? :edit, flag)
+  # can_clone_flag = (can? :create, flag)
+  # can_destroy_flag = (can? :destroy, flag)
+%>
+
+
+<tr>
+  <td>
+    <div class="nowrap">
+      <%= link_to note.title, note_path(note) %>
+    </div>
+  </td>
+  <td>
+    <div class="nowrap">
+      <%= note.body %>
+    </div>
+  </td>
+  <td>
+    <div class="nowrap">
+      <%= note.created_at %>
+    </div>
+  </td>
+  <td>
+    <div class="nowrap">
+      <%= note.updated_at %>
+    </div>
+  </td>
+  <!-- <td class="nowrap actions-cell">-->
+  <td class="nowrap">
+    <%= link_to "#", class: "action-btn export_pkpass", data: { toggle: 'tooltip', placement: 'top' }, title: t('actions.export.default') do %>
+      <i class="fa fa-download fa-fw" aria-hidden="true"></i>
+    <% end %>
+
+    <%= link_to "#", class: "action-btn clone_pkpass_template", data: { toggle: 'tooltip', placement: 'top' }, title: t('actions.clone') do %>
+      <i class="fa fa-clone fa-fw" aria-hidden="true"></i>
+    <% end %>
+
+    <%#= link_to edit_note_path(note), class: "btn btn-xs", data: {toggle: 'tooltip', placement: 'top'}, title: t('actions.edit') do %>
+    <%= link_to edit_note_path(note), class: "action-btn edit", data: { toggle: 'tooltip', placement: 'top' }, title: t('actions.edit') do %>
+      <!--<i class="fa fa-pencil fa-fw"></i>-->
+      <!--<i class="fa fa-edit"></i>-->
+      <i class="fa fa-pencil-alt fa-fw" aria-hidden="true"></i>
+    <% end %>
+
+    <%#= link_to note_path(note), method: :delete, class: "btn btn-xs", data: {confirm: t("actions.confirm"), toggle: 'tooltip', placement: 'top', disable_with: t('actions.deleting.short')}, title: t('actions.delete') do %>
+    <%= link_to note_path(note), method: :delete, class: "action-btn delete", data: { confirm: t("actions.confirm"), toggle: 'tooltip', placement: 'top', disable_with: t('actions.deleting.short') }, title: t('actions.delete') do %>
+      <i class="fa fa-times fa-lg fa-fw" aria-hidden="true"></i>
+    <% end %>
+  </td>
+</tr>

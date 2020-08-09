@@ -218,3 +218,26 @@ en:
     details:
       header: 'Note Details'
     form:
+
+
+
+
+  errors:
+    resources:
+      not_found: 'No %{resource} found'
+      not_assigned: 'No %{resource} assigned'
+      not_settings_found: 'No %{resource} settings found'
+      identified_not_found: 'No %{resource} identified with %{id} was found'
+      detailed_invalid: '%{resource} is invalid. Details: %{details}'
+      missing_invalid: '%{resource} is missing or invalid'
+      check_error_details: '%{resource} is invalid, please check the error details'
+      not_selected: 'No %{resource} selected'
+      invalid_status: 'Invalid %{resource} status given'
+      invalid_code: 'Given code %{code} does not match any %{resource}'
+      disabled: '%{resource} is not enabled. Please review your settings'
+      single_instance_violation: 'Unable to create another instance of %{resource}. Only one instance allowed.'
+      identified_exist_already: 'A %{resource} identified with %{id} already exist'
+      unprocessable: 'The following %{resources} are not processable: %{details}'
+
+
+

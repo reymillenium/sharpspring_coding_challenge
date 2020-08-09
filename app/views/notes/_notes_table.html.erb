@@ -1,0 +1,45 @@
+<%
+  return_to = local_assigns.fetch(:return_to, request.fullpath)
+  notes = local_assigns.fetch(:notes, [])
+  flags_scope_meta ||= nil
+  note_model = Note
+  navigation_descriptor ||= {}
+%>
+
+<div class="card-body">
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+      <thead>
+      <tr>
+        <th>
+          <%= sort_link(@notes_scope_meta, :title, { default_order: :asc }) %>
+        </th>
+        <th>
+          <%= sort_link(@notes_scope_meta, :body, { default_order: :asc }) %>
+        </th>
+        <th>
+          <%= sort_link(@notes_scope_meta, :created_at, { default_order: :asc }) %>
+        </th>
+        <th>
+          <%= sort_link(@notes_scope_meta, :updated_at, { default_order: :asc }) %>
+        </th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% if @notes.present? %>
+        <%= render partial: "notes/note_row", collection: @notes, as: :note, locals: { return_to: return_to } %>
+      <% else %>
+        <tr>
+          <td colspan="6" class="text-center">
+            <i class="fa fa-info-circle"></i>
+            <i><%= t('errors.resources.not_found', resource: humanize_model(note_model, pluralize: true, titleize: false)) %></i>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+
+    </table>
+  </div>
+</div>
