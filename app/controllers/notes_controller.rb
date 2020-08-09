@@ -19,9 +19,7 @@ class NotesController < ApplicationController
   end
 
   def create
-    # binding.pry
-    @note = Note.new(note_params)
-    # binding.pry
+    @note = Note.new(note_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @note.save
