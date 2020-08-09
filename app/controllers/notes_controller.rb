@@ -3,7 +3,7 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def index
-    notes_scope = Note.all
+    notes_scope = Note.visible_by(current_user)
     @notes_scope_meta = notes_scope.ransack(params[:q])
     @notes = @notes_scope_meta.result
   end
@@ -61,7 +61,7 @@ class NotesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_note
-    @note = Note.find(params[:id])
+    @note = Note.visible_by(current_user).find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
