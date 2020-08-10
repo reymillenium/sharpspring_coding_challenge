@@ -8,8 +8,6 @@ RSpec.describe Note, type: :model do
   end
 
   describe '#user' do
-    # let(:described_object) {build :flag, :with_category}
-
     it 'should be defined' do
       expect(described_object).to respond_to :user
     end
@@ -30,22 +28,9 @@ RSpec.describe Note, type: :model do
     end
   end
 
-
-
-
-  # describe '#category' do
-  #   # let(:described_object) {build :flag, :with_category}
-  #
-  #   it 'should be defined' do
-  #     expect(described_object).to respond_to :category
-  #   end
-  #
-  #   it 'should be a belongs_to relationship' do
-  #     expect(described_object).to belong_to(:category).class_name('Flags::FlagCategory')
-  #   end
-  # end
-
-
-
-
+  describe '#body' do
+    it 'should be defined' do
+      expect(described_object).to respond_to :body
+    end
+  end
 end
