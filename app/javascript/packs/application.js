@@ -3,13 +3,18 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import 'bootstrap'
 
+
+// Default:
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+// Boostrap 4:
+import 'bootstrap'
+
+// FontAwesome scripting:
 import "@fortawesome/fontawesome-free/js/all";
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -21,5 +26,6 @@ import "@fortawesome/fontawesome-free/js/all";
 
 import "controllers"
 
+// ActionText Trix Editor styling:
 require("trix")
 require("@rails/actiontext")
