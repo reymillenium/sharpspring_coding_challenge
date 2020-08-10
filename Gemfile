@@ -52,12 +52,10 @@ group :development, :test do
   gem 'rspec-mocks'
   gem 'rspec-rails'
   gem 'rspec-support'
-
-
-
   gem 'faker'
   gem 'factory_bot_rails'
   gem 'rubocop-faker'
+  gem 'shoulda-matchers'
 end
 
 group :development do

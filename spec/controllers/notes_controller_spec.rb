@@ -10,7 +10,7 @@ RSpec.describe NotesController, type: :controller do
 
 
   let(:valid_attributes) {
-    { :title => "Test title!", :body => "This is a test description", user: build(:user) }
+    { :title => "Test title!", :body => "This is a test body", user: build(:user) }
   }
 
   let(:valid_session) { {} }
