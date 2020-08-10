@@ -36,6 +36,7 @@ default: &default
   pool:     <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: reinier
   password: ''
+  timeout: 5000
 
 development:
   <<: *default
@@ -49,6 +50,7 @@ test:
   min_messages: WARNING
 
 production:
-  <<: *default
+#  <<: *default
   # To use it directly from
-  database: sharpspring_coding_challenge_development
+  database: sharpspring_coding_challenge_production
+  port: 5432
