@@ -5,7 +5,6 @@
   # show_path = flags_flag_path(flag, index_scope: navigation_descriptor.to_h, return_to: return_to)
 %>
 
-
 <tr>
   <td>
     <div class="nowrap">
@@ -19,12 +18,12 @@
   </td>
   <td>
     <div class="nowrap">
-      <%= note.created_at %>
+      <%= if_applicable(note.created_at.present? ? l(note.created_at) : nil, titleize: false) %>
     </div>
   </td>
   <td>
     <div class="nowrap">
-      <%= note.updated_at %>
+      <%= if_applicable(note.updated_at.present? ? l(note.updated_at) : nil, titleize: false) %>
     </div>
   </td>
   <!-- <td class="nowrap actions-cell">-->
