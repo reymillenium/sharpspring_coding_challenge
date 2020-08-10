@@ -1,0 +1,26 @@
+<%
+  return_to ||= local_assigns.fetch(:return_to, request.fullpath)
+  notes_scope_meta = local_assigns.fetch(:notes_scope_meta, nil)
+  search_criteria = local_assigns.fetch(:search_criteria, nil)
+  search_url = local_assigns.fetch(:search_url, nil)
+  return_to ||= request.fullpath
+%>
+
+<div class="card-header">
+  <%= link_to new_note_path, class: "btn btn-success btn-xs", data: { toggle: 'tooltip', placement: 'top' }, title: t('actions.new') do %>
+    <i class="fa fa-sticky-note fa-fw" aria-hidden="true"></i>
+    <%= t('notes.new.button_title') %>
+  <% end %>
+
+  <%= search_form_for notes_scope_meta, url: search_url, class: 'd-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0 float-right' do |f| %>
+    <div class="input-group">
+      <%= f.search_field search_criteria, class: 'form-control', autocomplete: "off", placeholder: "#{t('actions.search_for')}..." %>
+
+      <div class="input-group-append">
+        <%= button_tag type: 'submit', class: 'btn btn-primary' do %>
+          <i class="fa fa-search"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

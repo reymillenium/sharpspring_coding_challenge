@@ -5,12 +5,13 @@
 %>
 
 <div class="card mb-4">
-  <div class="card-header">
-    <%= link_to new_note_path, class: "btn btn-success btn-xs", data: { toggle: 'tooltip', placement: 'top' }, title: t('actions.new') do %>
-      <i class="fa fa-sticky-note fa-fw" aria-hidden="true"></i>
-      New Note
-    <% end %>
-  </div>
+  <%= render partial: "notes/index_toolbar", locals: {
+      return_to: return_to,
+      notes_scope_meta: notes_scope_meta,
+      search_criteria: :title_or_action_text_rich_text_body_cont,
+      search_url: notes_path,
+      show_actions: false
+  } %>
 
   <%= render partial: "notes/notes_table", locals: {
       return_to: return_to,

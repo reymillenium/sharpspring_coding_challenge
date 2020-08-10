@@ -62,6 +62,7 @@ en:
       long: 'Adding...'
     confirm: 'Are you sure?'
     search: 'Search'
+    search_for: 'Search for'
     searching:
       short: '...'
       long: 'Searching...'
