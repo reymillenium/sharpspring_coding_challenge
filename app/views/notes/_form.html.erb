@@ -1,39 +1,43 @@
-<%= form_with(model: note, local: true) do |form| %>
-  <% if note.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+<%
+  note_model = Note
+  note = local_assigns.fetch(:note, Note.new)
+  return_to = local_assigns.fetch(:return_to, request.fullpath)
+%>
 
-      <ul>
-        <% note.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class="card-body">
+
+  <%= form_with(model: note, local: true) do |form| %>
+    <% if note.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+        <ul>
+          <% note.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <!-- Form Row # 1:  -->
+    <div class="form-group">
+      <%= form.label :title, humanize_attribute(note_model, :title), class: 'small mb-1' %>
+      <%= form.text_field :title, class: 'form-control py-4', autofocus: true, autocomplete: "title", placeholder: 'Enter the title' %>
     </div>
+
+    <!-- Form Row # 2:  -->
+    <div class="form-group">
+      <%= form.label :body, humanize_attribute(note_model, :body), class: "small mb-1" %>
+      <%#= form.text_field :title, class: 'form-control py-4', autofocus: true, autocomplete: "title", placeholder: 'Enter the title' %>
+      <%= form.rich_text_area :body, class: "form-control py-4", disabled: false %>
+    </div>
+
+    <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+      <div class="actions">
+        <%#= form.submit "Login", class: "btn btn-primary" %>
+        <%= form.submit (note.persisted? ? t('actions.save') : t('actions.create_and_continue')), name: "save", class: "btn btn-primary", data: { disable_with: (note.persisted? ? t('actions.saving.long') : t('actions.creating.long')) } %>
+      </div>
+    </div>
+
   <% end %>
-
-  <!-- Form Row # 1:  -->
-  <div class="form-group">
-    <div class="col-sm-12 name-group">
-      <%#= form.label :title, humanize_attribute(flag_model, :name), class: "control-label icon-required" %>
-      <%= form.label :title %>
-      <%= form.text_field :title, class: 'form-control', required: true %>
-      <p class="name-help-block">
-      </p>
-    </div>
-
-  </div>
-
-  <!-- Form Row # 2:  -->
-  <div class="form-group">
-    <div class="col-sm-12">
-      <%#= form.label :body, humanize_attribute(flag_model, :body), class: "control-label" %>
-      <%= form.label :body %>
-      <%#= form.text_area :body, class: "form-control textarea_inline_100 text_autosize", style: 'resize: vertical; height: 240px;', disabled: false %>
-      <%= form.rich_text_area :body, class: "form-control", disabled: false %>
-    </div>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
