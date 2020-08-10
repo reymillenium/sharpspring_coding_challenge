@@ -27,6 +27,7 @@ class NotesController < ApplicationController
         format.html { redirect_to notes_url, notice: 'Note was successfully created.' }
         format.json { render :show, status: :created, location: @note }
       else
+        flash[:alert] = @note.errors.full_messages.first
         format.html { render :new }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
@@ -41,6 +42,7 @@ class NotesController < ApplicationController
         format.html { redirect_to @note, notice: 'Note was successfully updated.' }
         format.json { render :show, status: :ok, location: @note }
       else
+        flash[:alert] = @note.errors.full_messages.first
         format.html { render :edit }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
