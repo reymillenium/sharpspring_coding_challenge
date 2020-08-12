@@ -35,6 +35,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # =============================== UI BEGIN =====================================
 # gem 'animate-rails'
 gem 'htmltoword'
+gem 'kaminari'
 # ================================ UI END ======================================
 
 gem 'ransack'
