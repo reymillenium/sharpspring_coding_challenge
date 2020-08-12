@@ -33,4 +33,28 @@ RSpec.describe Note, type: :model do
       expect(described_object).to respond_to :body
     end
   end
+
+  describe '.visible_by' do
+    let(:current_user) { create :user }
+    let(:other_user) { create :user }
+
+    let!(:notes_created_by_current_user) { 2.times.map { create :note, user: current_user } }
+    let!(:notes_created_by_other_user) { 2.times.map { create :note, user: other_user } }
+
+    it 'should be defined' do
+      expect(described_class).to respond_to :visible_by
+    end
+
+    it 'should return an active record relationship' do
+      expect(described_class.visible_by(current_user)).to be_a ActiveRecord::Relation
+    end
+
+    it 'should return all the notes created by the current user' do
+      expect(described_class.visible_by(current_user.id)).to match_array notes_created_by_current_user
+    end
+
+    it 'should not return any note when the current user is nil' do
+      expect(described_class.visible_by(nil)).to be_empty
+    end
+  end
 end

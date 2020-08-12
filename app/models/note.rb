@@ -5,7 +5,6 @@ class Note < ApplicationRecord
 
   # Relations:
   belongs_to :user, class_name: 'User', inverse_of: :notes
-
   has_one :action_text_rich_text,
           class_name: 'ActionText::RichText',
           as: :record
