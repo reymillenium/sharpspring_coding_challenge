@@ -1,6 +1,5 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
-  # before_action :set_note, only: [:show, :edit, :update, :destroy, :clone]
   before_action :set_note, only: %i[show edit update destroy clone]
 
   def index
@@ -20,7 +19,7 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = Note.new(note_params.merge(user_id: current_user.id))
+    @note = note_service.build_note(note_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @note.save
