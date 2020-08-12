@@ -32,6 +32,10 @@
 en:
   app:
     name: 'SharpNotes'
+    extra_pages:
+      about:
+        title: 'Meet the Developer'
+        nav: 'About'
 
   actions:
     default: 'Save'

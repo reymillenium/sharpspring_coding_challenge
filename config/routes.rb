@@ -14,4 +14,7 @@ Rails.application.routes.draw do
     get :download_note_as_word, on: :member, defaults: { format: :docx }
   end
 
+  # The extra_pages view (extra)
+  get 'extra_pages', to: 'extra_pages#about'
+
 end
