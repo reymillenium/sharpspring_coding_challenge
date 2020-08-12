@@ -9,6 +9,7 @@ class NoteService
   def self.build_note(params)
     filtered_params = clean_parameters(params)
     note = Note.new(filtered_params)
+    note.title = title_from_note(note) if note.title.empty?
     note
   end
 
@@ -17,6 +18,7 @@ class NoteService
     note = Note.find(params[:id])
     filtered_params = clean_parameters(params)
     note.assign_attributes(filtered_params)
+    note.title = title_from_note(note) if note.title.empty?
     note
   end
 
@@ -45,6 +47,10 @@ class NoteService
     format_ok = string.match(/\d{4}-\d{2}-\d{2}-\d{6}/).present?
     parseable = Date.strptime(string, '%Y-%m-%d-%I%M%S').present? rescue false
     (format_ok && parseable)
+  end
+
+  def self.title_from_note(note)
+    Nokogiri::HTML::Document.parse(note.body.body.to_s).text.gsub(/\s+/, " ").strip[0..29]
   end
 
   private_class_method :clean_parameters, :get_timestamped_field, :valid_timestamp?
