@@ -53,5 +53,5 @@ class NoteService
     Nokogiri::HTML::Document.parse(note.body.body.to_s).text.gsub(/\s+/, " ").strip[0..29]
   end
 
-  private_class_method :clean_parameters, :get_timestamped_field, :valid_timestamp?
+  private_class_method :clean_parameters, :get_timestamped_field, :valid_timestamp?, :title_from_note
 end

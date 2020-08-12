@@ -1,7 +1,7 @@
 $new_green: #339999;
-$blue:  #308F95;
+$blue: #308F95;
 $dblue: #1379b3;
-$grey:  #525252;
+$grey: #525252;
 $lgrey: #f5f6f8;
 $green: #7BBD06;
 $borderColor: #eee;
@@ -244,12 +244,11 @@ $dark_grey_text: #858585;
 }
 
 
-
-
 th.actions-cell, td.actions-cell {
   text-align: right;
   padding-right: 10px;
-  &.two-buttons{
+
+  &.two-buttons {
     min-width: 66px;
   }
 }
