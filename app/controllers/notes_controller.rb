@@ -76,7 +76,7 @@ class NotesController < ApplicationController
     word = note_service.generate_word(@note)
     time_stamp = I18n.l(Time.zone.now, format: '%Y-%m-%d-%H%M%S')
     word_file_name = @note.title.gsub(' ', '_') + '_' + time_stamp
-    send_data(word, filename: "#{word_file_name}.docx", content_type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+    send_data(word, filename: "#{word_file_name}.docx", disposition: 'attachment', content_type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')
   end
 
   private
