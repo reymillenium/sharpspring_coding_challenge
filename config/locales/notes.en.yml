@@ -220,15 +220,11 @@ en:
       exporting_action:
         success: 'The Report of %{resource} has been successfully exported to the csv file: "%{file_name}"'
         error: "It was not possible to export to a csv file the Report of %{resource}"
-    nature:
-      manual: "Manual"
-      automatic: "Automatic"
-      all: "All"
-    severity:
-      critical: "Critical"
-      warning: "Warning"
-      informational: "Informational"
-      all: "All"
+    column_header_labels:
+      title: "Name"
+      body: "Body"
+      created_at: "Created At"
+      updated_at: "Updated At"
     new:
       header: 'New Note'
       button_title: 'New'
@@ -249,4 +245,6 @@ en:
     download_note:
       errors:
         wrong_password: "The Note by the name of '%{resource}' has the wrong password."
+
     form:
+

@@ -3,6 +3,8 @@
   note = local_assigns.fetch(:note)
   # navigation_descriptor ||= {}
   # show_path = flags_flag_path(flag, index_scope: navigation_descriptor.to_h, return_to: return_to)
+  body_truncate_length = 160
+  body_text = text_from_note(note)
 %>
 
 <tr>
@@ -13,7 +15,14 @@
   </td>
   <td>
     <div class="nowrap">
-      <%= note.body %>
+      <%#= note.body %>
+
+
+
+      <% popover_data = body_text.length > body_truncate_length ? {toggle: :popover, trigger: :hover, title: t('notes.column_header_labels.body'), content: body_text, placement: :left, html: true} : {} %>
+      <%= content_tag :div, data: popover_data do %>
+        <%= truncate(body_text, length: body_truncate_length) %>
+      <% end %>
     </div>
   </td>
   <td>
@@ -49,3 +58,25 @@
     <% end %>
   </td>
 </tr>
+
+<script type="text/javascript" charset="utf-8">
+    // $(function () {
+    //     $('.popover-test').popover({
+    //         html : true,
+    //         title: "This is a test",
+    //         content: "<b>hello popover world</b>"
+    //     }).popover('show');
+    // });
+
+
+
+    $(function () {
+        $('.popover-test').popover({
+            html : true,
+            title: "This is a test",
+            content: "<b>hello popover world</b>"
+        }).popover('show');
+    });
+
+
+</script>
