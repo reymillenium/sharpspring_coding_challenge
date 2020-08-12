@@ -23,8 +23,8 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
-        # format.html { redirect_to @note, notice: 'Note was successfully created.' }
-        format.html { redirect_to notes_url, notice: 'Note was successfully created.' }
+        redirect_notice = t('notes.create.success_notice')
+        format.html { redirect_to notes_url, notice: redirect_notice }
         format.json { render :show, status: :created, location: @note }
       else
         flash[:alert] = @note.errors.full_messages.first
@@ -34,12 +34,13 @@ class NotesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /notes/1
-  # PATCH/PUT /notes/1.json
   def update
+    @note = note_service.update_note(note_params.merge(id: params.fetch(:id)))
+
     respond_to do |format|
-      if @note.update(note_params)
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+      if @note.save
+        redirect_notice = t('notes.update.success_notice')
+        format.html { redirect_to @note, notice: redirect_notice }
         format.json { render :show, status: :ok, location: @note }
       else
         flash[:alert] = @note.errors.full_messages.first
@@ -49,12 +50,10 @@ class NotesController < ApplicationController
     end
   end
 
-  # DELETE /notes/1
-  # DELETE /notes/1.json
   def destroy
     @note.destroy
     respond_to do |format|
-      format.html { redirect_to notes_url, notice: 'Note was successfully destroyed.' }
+      format.html { redirect_to notes_url, notice: t('notes.destroy.success_notice') }
       format.json { head :no_content }
     end
   end

@@ -7,27 +7,17 @@ class NoteService
 
   # Method to build a note based on given parameters
   def self.build_note(params)
-    # Gets the association parameters
     filtered_params = clean_parameters(params)
-
-    # Build the note based on simple attributes
     note = Note.new(filtered_params)
-
-    # Returns the built object
     note
   end
 
   # Method to update a note based on params descriptor
   def self.update_note(params)
-    # # Gets the association parameters
-    # pkpass_template = CuseumPkpass::PkpassTemplate.find(params[:id])
-    # pkpass_template.expiration_date = params[:expiration_date].present? ? Time.zone.strptime(params[:expiration_date], Settings::TIME_FORMAT) : ''
-    # pkpass_template.relevant_date = params[:relevant_date].present? ? Time.zone.strptime(params[:relevant_date], Settings::TIME_FORMAT) : ''
-    #
-    # filtered_params = clean_parameters(params)
-    # filtered_params = compose_style_param_keys(filtered_params)
-    # pkpass_template.assign_attributes(filtered_params)
-    # pkpass_template
+    note = Note.find(params[:id])
+    filtered_params = clean_parameters(params)
+    note.assign_attributes(filtered_params)
+    note
   end
 
   def self.generate_clone_from_original(original_note)

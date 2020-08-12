@@ -232,7 +232,7 @@ en:
     new:
       header: 'New Note'
       button_title: 'New'
-    creation:
+    create:
       header: 'Create Note'
       success_notice: "Note was successfully created."
     update:
