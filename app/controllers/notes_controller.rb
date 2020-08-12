@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_note, only: %i[show edit update destroy clone]
+  before_action :set_note, only: %i[show edit update destroy clone download_note_as_word]
 
   def index
     notes_scope = Note.visible_by(current_user)
@@ -72,6 +72,13 @@ class NotesController < ApplicationController
     end
   end
 
+  def download_note_as_word
+    word = note_service.generate_word(@note)
+    time_stamp = I18n.l(Time.zone.now, format: '%Y-%m-%d-%H%M%S')
+    word_file_name = @note.title.gsub(' ', '_') + '_' + time_stamp
+    send_data(word, filename: "#{word_file_name}.docx", content_type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+  end
+
   private
 
 
@@ -79,7 +86,6 @@ class NotesController < ApplicationController
     NoteService
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_note
     @note = Note.visible_by(current_user).find(params[:id])
   end

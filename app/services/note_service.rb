@@ -1,4 +1,6 @@
 class NoteService
+  require 'htmltoword'
+
   extend NotesHelper
 
   # Params not desired to build/update a note object
@@ -24,11 +26,17 @@ class NoteService
 
   def self.generate_clone_from_original(original_note)
     new_note = Note.new(original_note.attributes.except(*EXCEPTIONS_WHEN_CLONING))
-    # It also clones the body of the inner ActionText::RichText object
+    # Clones the body of the inner ActionText::RichText object
     new_note.body.body = original_note.body.body
     timestamp = I18n.l(Time.zone.now, format: '%Y-%m-%d-%I%M%S')
     new_note.title = get_timestamped_field(original_note.title, timestamp)
     new_note
+  end
+
+  def self.generate_word(note)
+    my_html = note.body.body.to_s
+    document = Htmltoword::Document.create(my_html)
+    document
   end
 
   # Cleans parameters not applicable to note attributes
