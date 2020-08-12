@@ -35,8 +35,6 @@
   </td>
 
   <td class="nowrap">
-    <%#= link_to download_note_as_word_note_path(note), class: "btn btn-sm", data: { toggle: 'tooltip', placement: 'top' }, title: t('actions.download') do %>
-    <%#= link_to download_note_as_word_note_path(note), class: "btn btn-sm", target: '_blank', data: { toggle: 'tooltip', placement: 'top' }, title: t('actions.download') do %>
     <%= link_to download_note_as_word_note_path(note), class: "btn btn-sm", download: note.title, data: { toggle: 'tooltip', placement: 'top' }, title: t('actions.download') do %>
       <i class="fa fa-download fa-fw" aria-hidden="true"></i>
     <% end %>
