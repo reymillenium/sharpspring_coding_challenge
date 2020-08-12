@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  # before_action :set_note, only: [:show, :edit, :update, :destroy, :clone]
+  before_action :set_note, only: %i[show edit update destroy clone]
 
   def index
     notes_scope = Note.visible_by(current_user)
@@ -59,7 +60,26 @@ class NotesController < ApplicationController
     end
   end
 
+  def clone
+    new_note = note_service.generate_clone_from_original(@note)
+
+    if new_note.save
+      redirect_notice = t('notes.clone.success_notice', resource: @note.title)
+      respond_to do |format|
+        format.html { redirect_to :notes, notice: redirect_notice }
+        format.js { head(:ok) }
+      end
+    else
+      redirect_to action: :index
+    end
+  end
+
   private
+
+
+  def note_service
+    NoteService
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_note

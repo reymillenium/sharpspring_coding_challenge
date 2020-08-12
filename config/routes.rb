@@ -63,5 +63,7 @@ Rails.application.routes.draw do
   #   root :to => 'users/sessions#new'
   # end
   #
-  resources :notes
+  resources :notes do
+    get :clone, on: :member
+  end
 end

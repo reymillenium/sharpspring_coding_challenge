@@ -234,8 +234,19 @@ en:
       button_title: 'New'
     creation:
       header: 'Create Note'
+      success_notice: "Note was successfully created."
     update:
       header: 'Edit Note'
+      success_notice: "Note was successfully updated."
     details:
       header: 'Note Details'
+    edit:
+      header: "Edit Note"
+    destroy:
+      success_notice: "Note was successfully destroyed."
+    clone:
+      success_notice: "The Note with the title: '%{resource}' was successfully cloned."
+    download_note:
+      errors:
+        wrong_password: "The Note by the name of '%{resource}' has the wrong password."
     form:
