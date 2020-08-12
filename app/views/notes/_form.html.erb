@@ -23,3 +23,11 @@
     </div>
   <% end %>
 </div>
+
+
+<script type="text/javascript" charset="utf-8">
+  // Prevent from adding attachments:
+    document.addEventListener("trix-file-accept", function (event) {
+        event.preventDefault();
+    });
+</script>

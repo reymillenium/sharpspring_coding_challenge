@@ -253,3 +253,8 @@ th.actions-cell, td.actions-cell {
     min-width: 66px;
   }
 }
+
+// Hides the attachment button group on the Trix Editor:
+span.trix-button-group--file-tools {
+  display: none;
+}
