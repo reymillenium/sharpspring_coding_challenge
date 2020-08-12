@@ -18,7 +18,7 @@
 
     <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
       <div class="actions">
-        <%= form.submit (note.persisted? ? t('actions.save') : t('actions.create_and_continue')), name: "save", class: "btn btn-primary", data: { disable_with: (note.persisted? ? t('actions.saving.long') : t('actions.creating.long')) } %>
+        <%= form.submit (note.persisted? ? t('actions.save') : t('actions.create_and_continue')), name: "save", class: "btn btn-primary btn-sm", data: { disable_with: (note.persisted? ? t('actions.saving.long') : t('actions.creating.long')) } %>
       </div>
     </div>
   <% end %>

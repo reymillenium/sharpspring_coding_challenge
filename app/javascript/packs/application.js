@@ -14,6 +14,12 @@ require("channels")
 // Boostrap 4:
 import 'bootstrap'
 
+// Enables the tooltips & popovers:
+document.addEventListener("turbolinks:load", () => {
+    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="popover"]').popover()
+});
+
 // FontAwesome scripting:
 import "@fortawesome/fontawesome-free/js/all";
 
