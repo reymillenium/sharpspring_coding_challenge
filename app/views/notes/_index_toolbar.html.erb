@@ -11,6 +11,11 @@
     <%= t('notes.new.button_title') %>
   <% end %>
 
+  <div class="float-right">
+    <%== pagy_bootstrap_combo_nav_js(@pagy) %>
+  </div>
+
+
   <%= search_form_for notes_scope_meta, url: search_url, class: 'd-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0 float-right' do |f| %>
     <div class="input-group">
       <%= f.search_field search_criteria, class: 'form-control', autocomplete: "off", placeholder: "#{t('actions.search_for')}..." %>

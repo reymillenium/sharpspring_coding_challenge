@@ -7,8 +7,9 @@ class NotesController < ApplicationController
 
   def index
     notes_scope = Note.visible_by(current_user)
-    @notes_scope_meta = notes_scope.ransack(params[:q])
-    @notes = @notes_scope_meta.result
+    @notes_scope_meta = notes_scope.ransack(@scope)
+    @notes_scope_meta.sorts = "#{@sort_column} #{@sort_direction}" if @notes_scope_meta.sorts.empty?
+    @pagy, @notes = pagy(@notes_scope_meta.result, items: 10)
   end
 
   def show

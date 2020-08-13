@@ -35,7 +35,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # =============================== UI BEGIN =====================================
 # gem 'animate-rails'
 gem 'htmltoword'
-gem 'kaminari'
 # ================================ UI END ======================================
 
 gem 'ransack'
@@ -80,3 +79,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'pagy'
