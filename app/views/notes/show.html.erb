@@ -19,39 +19,30 @@
   </div>
 
   <div class="card-body">
-    <div class="form-horizontal border_bottom">
-      <!-- Details Row # 1:  -->
-      <div class="form-group">
-        <div class="col-sm-12">
-          <label class="control-label">
-            <%#= humanize_attribute(flag_model, :name) %>
-            Title:
-          </label>
-          <p class="form-control-static">
-            <%= if_applicable @note.title, titleize: false %>
-            <%#= @note.title %>
-          </p>
-        </div>
+    <!-- Details Row # 1:  -->
+    <div class="form-group">
+      <label class="small mb-1">
+        Title:
+      </label>
+      <div class="form-control" style="height: 50px; vertical-align: middle !important; padding-top: 12px;">
+        <%= if_applicable @note.title, titleize: false %>
       </div>
-
-      <!-- Separation Row: Makes this partial more similar to the edit/new form  -->
-      <div class="form-group"></div>
-
-      <!-- Details Row # 2: -->
-      <div class="form-group">
-        <div class="col-sm-12">
-          <label class="control-label">
-            <%#= humanize_attribute(flag_model, :body) %>
-            Body:
-          </label>
-          <div class="form-control-static" style="border: 1px solid black; border-radius: 4px; padding: 12px;">
-            <%= @note.body %>
-          </div>
-        </div>
-      </div>
-
-      <!-- Separation Row: Makes this partial more similar to the edit/new form  -->
-      <div class="form-group"></div>
     </div>
+
+    <!-- Separation Row: Makes this partial more similar to the edit/new form  -->
+    <div class="form-group"></div>
+
+    <!-- Details Row # 2: -->
+    <div class="form-group">
+      <label class="small mb-1">
+        Body:
+      </label>
+      <div class="form-control-static">
+        <%= @note.body %>
+      </div>
+    </div>
+
+    <!-- Separation Row: Makes this partial more similar to the edit/new form  -->
+    <div class="form-group"></div>
   </div>
 </div>
