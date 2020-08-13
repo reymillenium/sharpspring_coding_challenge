@@ -1,6 +1,9 @@
 class NotesController < ApplicationController
+  include CommonControl
+
   before_action :authenticate_user!
   before_action :set_note, only: %i[show edit update destroy clone download_note_as_word]
+  before_action :update_concerned_path, only: [:new, :create, :edit, :update]
 
   def index
     notes_scope = Note.visible_by(current_user)
@@ -40,7 +43,8 @@ class NotesController < ApplicationController
     respond_to do |format|
       if @note.save
         redirect_notice = t('notes.update.success_notice')
-        format.html { redirect_to @note, notice: redirect_notice }
+        # format.html { redirect_to @note, notice: redirect_notice }
+        format.html { redirect_to @return_to, notice: redirect_notice }
         format.json { render :show, status: :ok, location: @note }
       else
         flash[:alert] = @note.errors.full_messages.first

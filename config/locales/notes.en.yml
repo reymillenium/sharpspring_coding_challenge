@@ -48,7 +48,7 @@ en:
     create: 'Create'
     create_from_file: 'Create from file'
     save: 'Save'
-    create_and_continue: 'Create & Continue'
+    create_and_continue: 'Create'
     save_send: 'Save & Send'
     send: 'Send'
     dispatch: 'Dispatch'

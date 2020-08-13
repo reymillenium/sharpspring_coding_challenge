@@ -6,6 +6,7 @@
 
 <div class="card-body">
   <%= form_with(model: note, local: true) do |form| %>
+    <%= hidden_field_tag :return_to, return_to %>
     <div class="form-group">
       <%= form.label :title, humanize_attribute(note_model, :title), class: 'small mb-1' %>
       <%= form.text_field :title, class: 'form-control py-4', autofocus: true, autocomplete: "title", placeholder: 'Enter the title' %>

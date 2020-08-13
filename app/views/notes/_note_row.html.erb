@@ -1,8 +1,6 @@
 <%
   return_to = local_assigns.fetch(:return_to, request.fullpath)
   note = local_assigns.fetch(:note)
-  # navigation_descriptor ||= {}
-  # show_path = flags_flag_path(flag, index_scope: navigation_descriptor.to_h, return_to: return_to)
   body_truncate_length = 160
   body_text = text_from_note(note)
 %>
@@ -43,7 +41,7 @@
       <i class="fa fa-clone fa-fw" aria-hidden="true"></i>
     <% end %>
 
-    <%= link_to edit_note_path(note), class: "btn btn-sm", data: { toggle: 'tooltip', placement: 'top' }, title: t('actions.edit') do %>
+    <%= link_to edit_note_path(note, return_to: notes_path), class: "btn btn-sm", data: { toggle: 'tooltip', placement: 'top' }, title: t('actions.edit') do %>
       <i class="fa fa-pencil-alt fa-fw" aria-hidden="true"></i>
     <% end %>
 

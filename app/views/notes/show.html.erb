@@ -12,7 +12,7 @@
 
 <div class="card mb-4">
   <div class="card-header">
-    <%= link_to edit_note_path(@note), class: "btn btn-success btn-sm", data: { toggle: 'tooltip', placement: 'top' }, title: t('actions.edit') do %>
+    <%= link_to edit_note_path(@note, return_to: note_path(@note)), class: "btn btn-success btn-sm", data: { toggle: 'tooltip', placement: 'top' }, title: t('actions.edit') do %>
       <i class="fa fa-pencil-alt fa-fw" aria-hidden="true"></i>
       Edit Note
     <% end %>
@@ -25,11 +25,11 @@
         <div class="col-sm-12">
           <label class="control-label">
             <%#= humanize_attribute(flag_model, :name) %>
-            Title
+            Title:
           </label>
           <p class="form-control-static">
-            <%#= if_applicable flag.name, titleize: false %>
-            <%= @note.title %>
+            <%= if_applicable @note.title, titleize: false %>
+            <%#= @note.title %>
           </p>
         </div>
       </div>
@@ -41,11 +41,10 @@
       <div class="form-group">
         <div class="col-sm-12">
           <label class="control-label">
-            <%#= humanize_attribute(flag_model, :name) %>
-            Body
+            <%#= humanize_attribute(flag_model, :body) %>
+            Body:
           </label>
-          <div class="form-control-static">
-            <%#= if_applicable flag.name, titleize: false %>
+          <div class="form-control-static" style="border: 1px solid black; border-radius: 4px; padding: 12px;">
             <%= @note.body %>
           </div>
         </div>
