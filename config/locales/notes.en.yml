@@ -179,6 +179,7 @@ en:
     survey: 'Survey'
     json: 'JSON'
     back_to: 'Back to %{resource}'
+    back: 'Back'
     resend: 'Re-Send'
     resend_resource: 'Re-Send %{resource}'
 
