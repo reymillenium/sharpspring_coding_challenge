@@ -1,6 +1,7 @@
 # SharpNotes <img src="https://raw.githubusercontent.com/reymillenium/sharpspring_coding_challenge/master/app/assets/images/old-note-transparent.png" width="48" />
-
 [![HitCount](http://hits.dwyl.com/{username}/https://githubcom/reymillenium/sharpspring_coding_challenge.svg)](http://hits.dwyl.com/{username}/https://githubcom/reymillenium/sharpspring_coding_challenge)
+
+This is SharpNotes, a simple Ruby on Rails coding exercise. A sample website for recruiters, managers and potential clients. This covers local setup, dependencies and development flow.
 
 ## Ruby version
 2.7.0
