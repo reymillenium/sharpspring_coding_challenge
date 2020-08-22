@@ -10,19 +10,6 @@
 - PostgreSQL 11.6
 - Node.js 12.16.2
 
-## Configuration
-
-Configuration is managed by [Figaro](https://github.com/laserlemon/figaro). Copy basic configuration blueprint using `$ cp config/application.yml_example config/application.yml` and contact any team member for any sensitive credentials needed.
-
-## Database creation
-
-
-You need to run it each time when developing the app. Second of all - to have node and ruby dependencies installed, use:
-
-```
-$ bundle && yarn
-```
-
 ## Database initialization
 
 ```
