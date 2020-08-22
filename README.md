@@ -1,6 +1,7 @@
 # SharpNotes 
+![sharp_notes_logo](app/assets/images/old-note-transparent.png)
 
-This is SharpNotes, a simple Ruby on Rails coding exercise. A sample website for recruiters and potential clients. This covers local setup, dependencies and development flow.
+<img src="./old-note-transparent.png" width="48" height="24" />
 
 [![HitCount](http://hits.dwyl.com/{username}/https://githubcom/reymillenium/sharpspring_coding_challenge.svg)](http://hits.dwyl.com/{username}/https://githubcom/reymillenium/sharpspring_coding_challenge)
 
