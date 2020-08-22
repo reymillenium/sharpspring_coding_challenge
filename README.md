@@ -1,7 +1,4 @@
-# SharpNotes 
-![sharp_notes_logo](app/assets/images/old-note-transparent.png)
-
-<img src="./old-note-transparent.png" width="48" height="24" />
+# SharpNotes <img src="https://raw.githubusercontent.com/reymillenium/sharpspring_coding_challenge/master/app/assets/images/old-note-transparent.png" width="48" />
 
 [![HitCount](http://hits.dwyl.com/{username}/https://githubcom/reymillenium/sharpspring_coding_challenge.svg)](http://hits.dwyl.com/{username}/https://githubcom/reymillenium/sharpspring_coding_challenge)
 
