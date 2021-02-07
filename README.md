@@ -1,3 +1,5 @@
+![ReyMillenium Banner](https://github.com/reymillenium/images/blob/master/reymillenium_banner_800x200.png)
+
 # SharpNotes <img src="https://raw.githubusercontent.com/reymillenium/sharpspring_coding_challenge/master/app/assets/images/old-note-transparent.png" width="48" />
 [![HitCount](http://hits.dwyl.com/{username}/https://githubcom/reymillenium/sharpspring_coding_challenge.svg)](http://hits.dwyl.com/{username}/https://githubcom/reymillenium/sharpspring_coding_challenge)
 
@@ -61,9 +63,13 @@ $ git push heroku
 ### About page
 ![Example screenshot](app/assets/images/screenshots/about_page.png)
 
+## Deployment
+
+The present project has being deployed to [Heroku](https://sharp-notes.herokuapp.com/).
+
 ***
 ## Contact
-Created by [Reinier Garcia](https://www.reiniergarcia.com/) - feel free to contact me!
+Created by [Reinier Garcia](https://reiniergarcia.dev/) - feel free to contact me!
 
 
 
